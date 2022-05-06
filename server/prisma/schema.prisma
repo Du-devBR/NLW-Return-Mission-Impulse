@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+model Feedback {
+
+  id String @id @default(uuid())  //@id indica que é o PK | uuid (universe unique ID) - trasforma o id em 00000-00000-00000-00000
+  type String
+  comment String
+  screenshot String?   //o ? indica que o campo é opcional
+
+  @@map("feedbacks")
+}
