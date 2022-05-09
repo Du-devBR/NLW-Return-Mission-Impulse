@@ -9,7 +9,7 @@ import { FeedBackContentStep } from "./Steps/FeedBackContentStep";
 import { FeedBackSucessStep } from "./Steps/FeedBackSucess";
 
 
-export const feedBackTypes = {
+export const feedbackTypes = {
 
     BUG: {
         title: 'Problema',
@@ -36,7 +36,7 @@ export const feedBackTypes = {
     }
 }
 
-export type FeedBackType = typeof feedBackTypes
+export type FeedBackType = keyof typeof feedbackTypes
 
 export function WidgetForm(){
 

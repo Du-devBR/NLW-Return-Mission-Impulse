@@ -1,10 +1,11 @@
 import { ArrowLeft, Camera } from "phosphor-react"
 import { FormEvent, useState } from "react";
-import { FeedBackType, feedBackTypes } from ".."
+import { FeedBackType, feedbackTypes } from "../index";
 import { api } from "../../../lib/api";
 import { CloseButton } from "../../CloseButton"
 import { Loading } from "../../Loading";
 import { ScreenShotButton } from "../ScreenShotButton";
+
 
 interface feedBackContentStepProps {
     feedBackType: FeedBackType;
@@ -17,7 +18,7 @@ export function FeedBackContentStep ({feedBackType, onFeedBackRestartRequest, on
 
     const [isSendingFeedback, setIsSendingFeedback] = useState(false)
 
-    const feedBackTypeInfo = feedBackTypes[feedBackType]
+    const feedBackTypeInfo = feedbackTypes[feedBackType]
 
     async function handleSubmitFeedback(event:FormEvent) {
         event.preventDefault()
@@ -28,7 +29,7 @@ export function FeedBackContentStep ({feedBackType, onFeedBackRestartRequest, on
         await api.post('/feedbacks', {
             type: feedBackType,
             comment, 
-            screenshot
+            screenshot,
         })
         setIsSendingFeedback(false)
         onFeedbackSent()

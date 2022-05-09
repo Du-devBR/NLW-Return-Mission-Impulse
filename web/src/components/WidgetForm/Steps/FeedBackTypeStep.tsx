@@ -1,4 +1,4 @@
-import { FeedBackType, feedBackTypes } from ".."
+import { FeedBackType, feedbackTypes } from "../index"
 import { CloseButton } from "../../CloseButton"
 
 interface FeedBackTypeStepProps {
@@ -17,7 +17,7 @@ export function FeedBackTypeStep ({onFeedBackTypeChanged}: FeedBackTypeStepProps
             </header>
 
             <div className="flex py-8 gap-2 w-full">
-            { Object.entries(feedBackTypes).map(([key, value]) => {
+            { Object.entries(feedbackTypes).map(([key, value]) => {
 
 
             return (
